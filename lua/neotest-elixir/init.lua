@@ -70,7 +70,7 @@ local function script_path()
 end
 
 local function mix_root(file_path)
-  return lib.files.match_root_pattern("mix.exs")(file_path)
+  return lib.files.match_root_pattern("mix.lock")(file_path)
 end
 
 local function get_relative_path(file_path)
@@ -104,7 +104,7 @@ local json_encoder = (plugin_path / "neotest_elixir/json_encoder.ex").filename
 local exunit_formatter = (plugin_path / "neotest_elixir/formatter.ex").filename
 local mix_interactive_runner = (plugin_path / "neotest_elixir/test_interactive_runner.ex").filename
 
-ElixirNeotestAdapter.root = lib.files.match_root_pattern("mix.exs")
+ElixirNeotestAdapter.root = lib.files.match_root_pattern("mix.lock")
 
 function ElixirNeotestAdapter.filter_dir(_, rel_path, _)
   return rel_path == "test"
